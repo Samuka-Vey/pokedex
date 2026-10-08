@@ -1,22 +1,120 @@
-## Estrutura do projeto
+# Pokédex Simplificada
 
-```
-pokedex/
-├── index.html          # Página principal (HTML semântico)
-├── README.md           # Documentação do projeto
-├── .gitignore          # Arquivos ignorados pelo Git
+Aplicação web desenvolvida para a disciplina de Programação Web da Universidade Estadual do Piauí (UESPI), com o objetivo de consultar e explorar informações sobre Pokémon utilizando uma API REST pública.
+
+## Integrantes
+
+- Marcos Samuel Cornelio Barros
+- 
+
+## Descrição do Projeto
+
+A Pokédex Simplificada permite pesquisar, listar e visualizar informações detalhadas de Pokémon consumindo dados em tempo real da API utilizada.
+
+A aplicação foi desenvolvida utilizando HTML5, CSS/Tailwind CSS e JavaScript/TypeScript, sem utilização de frameworks frontend ou backend.
+
+## Funcionalidades
+
+### RF01 - Listagem de Pokémon
+- Exibição de uma lista de Pokémon ao iniciar a aplicação.
+- Apresentação do nome, número e imagem de cada Pokémon.
+
+### RF02 - Pesquisa
+- Pesquisa de Pokémon pelo nome.
+- Busca sem diferenciação entre letras maiúsculas e minúsculas.
+- Possibilidade de retornar à listagem original.
+
+### RF03 - Detalhamento de Pokémon
+Exibição das seguintes informações:
+
+- Nome
+- Número (ID)
+- Imagem
+- Tipo(s)
+- Altura
+- Peso
+- Habilidades
+- Estatísticas básicas
+
+### RF04 - Consulta por Tipo
+- Filtro de Pokémon por tipo.
+- Resultados obtidos diretamente da API.
+
+### RF05 - Apresentação dos Dados
+- Tratamento de imagens ausentes.
+- Tratamento de dados inexistentes.
+- Exibição legível de tipos e habilidades.
+- Identificação clara de altura e peso.
+
+## API Utilizada
+
+### PokéAPI
+
+Documentação:
+https://pokeapi.co/docs/v2
+
+Site:
+https://pokeapi.co
+
+## Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- Tailwind CSS
+- JavaScript / TypeScript
+- Fetch API
+
+## Estrutura do Projeto
+
+```text
+├── index.html
 ├── css/
-│   └── style.css       # Estilos, responsividade e acessibilidade
-└── js/
-    ├── main.js         # Ponto de entrada: eventos e fluxo geral da aplicação
-    ├── api.js          # Requisições à PokéAPI (fetch)
-    └── ui.js           # Renderização e atualização da interface (DOM)
+│   └── styles.css
+├── js/
+│   ├── api.js
+│   ├── main.js
+│   └── ui.js
+├── assets/
+│   └── images/
+└── README.md
 ```
 
-| Arquivo | Responsabilidade |
-|---------|------------------|
-| `index.html` | Estrutura da página: busca, filtro por tipo, listagem e detalhes |
-| `css/style.css` | Layout responsivo, foco visível e contraste adequado |
-| `js/main.js` | Conecta eventos do usuário às funções de API e de interface |
-| `js/api.js` | Consome a API em tempo de execução e trata as respostas |
-| `js/ui.js` | Exibe listagem, detalhes e mensagens de carregamento, erro e ausência de resultados |
+## Como Executar
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/usuario/repositorio.git
+```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd repositorio
+```
+
+3. Abra o arquivo `index.html` no navegador.
+
+Ou utilize uma extensão como **Live Server** no VS Code.
+
+## Requisitos Atendidos
+
+- Consumo de API REST em tempo de execução.
+- Operações assíncronas com Fetch API.
+- Interface responsiva.
+- HTML semântico.
+- Acessibilidade básica.
+- Tratamento de carregamento.
+- Tratamento de erros.
+- Tratamento de ausência de resultados.
+- Tratamento de dados ausentes.
+
+## Disciplina
+
+**Programação Web**  
+Professor: Eyder Rios
+
+**Universidade Estadual do Piauí (UESPI)**  
+Curso de Tecnologia em Sistemas de Computação
+
+**1ª Avaliação - Trabalho de Implementação com API REST**
