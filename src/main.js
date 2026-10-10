@@ -1,4 +1,3 @@
-
 import PokemonService from './service/pokemonService.js';
 
 import {
@@ -9,21 +8,35 @@ import {
 
 const pokemonService = new PokemonService();
 
+let allPokemon = [];
+
 async function init() {
     renderLoading();
 
     try {
-        const data = await pokemonService.getAll();
+        allPokemon = await pokemonService.getAll(10000);
 
-        if (!Array.isArray(data)) {
-            throw new Error('Dados inválidos');
-        }
-
-        renderPokemonList(data);
+        renderPokemonList(allPokemon);
     } catch (error) {
-        console.error('Erro ao carregar Pokémon:', error);
-        renderError('Não foi possível carregar os Pokémon.');
+        renderError('Erro ao carregar os Pokémon.');
     }
 }
+
+const searchInput = document.querySelector('#search-input');
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim().toLowerCase();
+
+    if (!query) {
+        renderPokemonList(allPokemon);
+        return;
+    }
+
+    const filteredPokemon = allPokemon.filter(pokemon =>
+        pokemon.name.startsWith(query)
+    );
+
+    renderPokemonList(filteredPokemon);
+});
 
 init();
