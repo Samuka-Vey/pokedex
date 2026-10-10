@@ -24,9 +24,9 @@ O código JavaScript é organizado em módulos, separando as requisições à AP
 
 ### RF02 - Pesquisa
 
-* Pesquisa de Pokémon pelo nome.
-* Busca sem diferenciação entre letras maiúsculas e minúsculas.
-* Possibilidade de retornar à listagem original.
+* Pesquisa de Pokémon pelo nome. [ **Finalizado** ]
+* Busca sem diferenciação entre letras maiúsculas e minúsculas. [ **Finalizado** ]
+* Possibilidade de retornar à listagem original. [ **Finalizado** ]
 
 ### RF03 - Detalhamento de Pokémon
 
