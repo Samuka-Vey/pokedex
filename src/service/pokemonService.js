@@ -12,6 +12,9 @@ class PokemonService {
         );
 
          console.log('Data fetched from API:', data);
+        
+
+         
 
 
         return data.results.map(pokemon => {
@@ -29,11 +32,18 @@ class PokemonService {
 
     }       
 
+   
+
     async getByName(name) {
         return await this.api.get(
             `/pokemon/${encodeURIComponent(name.toLowerCase())}`
         );
     }
+
+    async getById(id) {
+        return await this.api.get(`/pokemon/${id}`);
+    }
+    
 }
 
 export default PokemonService;
