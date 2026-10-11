@@ -1,36 +1,73 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokédex</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
-  <header>
-    <div class="search search-style">
-    <input
-    type="search"
-    id="search-input"
-    placeholder="Buscar Pokémon..."
-    aria-label="Buscar Pokémon"
+    <header>
+        <div class="search search-style">
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Buscar Pokémon..."
+                aria-label="Buscar Pokémon"
+            >
+        </div>
+    </header>
+
+    <aside>
+        <div class="poke-data">
+            <h2>PKMN DATA</h2>
+        </div>
+    </aside>
+
+    <main>
+        <div class="container">
+            <section
+                id="pokemon-list"
+                aria-label="Lista de Pokémon"
+                class="grid grid-cols-2 gap-4 md:grid-cols-4"
+            >
+            </section>
+        </div>
+    </main>
+
+    <dialog
+        id="pokemon-modal"
+        aria-labelledby="modal-title"
+        class="w-11/12 max-w-lg rounded-2xl bg-slate-900 p-6 text-white backdrop:bg-black/70"
     >
-    </div>
-  </header>
-  <aside>
-    <div class="poke-data">
-      <h3>pkmn DATA</h3>
-    </div>
-  </aside>
- <main>
-  <div class="container">
-  <section id="pokemon-list" aria-label="Lista de Pokémon" class="grid grid-cols-2 gap-4 md:grid-cols-4">
-  </section>
-    </div>
-  <script type="module" src="./src/main.js"></script>
-   </main>
-  </section>
+        <div class="flex items-center justify-between gap-4">
+            <h2
+                id="modal-title"
+                class="text-2xl font-bold capitalize"
+            ></h2>
+
+            <span id="modal-subtitle" class="text-sm text-slate-400"></span>
+
+            <button
+                id="modal-close"
+                type="button"
+                class="rounded-lg bg-red-500 px-3 py-2 hover:bg-red-600"
+                aria-label="Fechar detalhes do Pokémon"
+            >
+                Fechar
+            </button>
+        </div>
+
+        <div id="modal-content" class="mt-4">
+        </div>
+    </dialog>
+
+    <script type="module" src="./src/main.js"></script>
 </body>
+
 </html>
