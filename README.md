@@ -5,6 +5,7 @@ Aplicação web desenvolvida para a disciplina de Programação Web da Universid
 ## Integrantes
 
 - Marcos Samuel Cornelio Barros
+
 - Ian Caio Pinheiro da Frota
 
 ## Descrição do Projeto
