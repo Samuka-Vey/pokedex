@@ -13,10 +13,6 @@ class PokemonService {
 
          console.log('Data fetched from API:', data);
         
-
-         
-
-
         return data.results.map(pokemon => {
             const id = pokemon.url
                 .split('/')
@@ -43,6 +39,7 @@ class PokemonService {
     async getById(id) {
         return await this.api.get(`/pokemon/${id}`);
     }
+
     
 }
 
