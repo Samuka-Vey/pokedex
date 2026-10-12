@@ -14,50 +14,60 @@
 <body>
     <header>
         <div class="search search-style">
-            <input
-                type="search"
-                id="search-input"
-                placeholder="Buscar Pokémon..."
-                aria-label="Buscar Pokémon"
-            >
+            <input type="search" id="search-input" placeholder="Buscar Pokémon..." aria-label="Buscar Pokémon">
         </div>
     </header>
 
     <aside>
         <div class="poke-data">
             <h2>PKMN DATA</h2>
+            <nav id="pagination" class="mt-6 flex items-center justify-center gap-4" aria-label="Paginação dos Pokémon">
+            </nav>
         </div>
     </aside>
 
     <main>
+<<<<<<< HEAD
         <div class="container box-border">
             <section
                 id="pokemon-list"
                 aria-label="Lista de Pokémon"
                 class="grid grid-cols-2 gap-4 md:grid-cols-4"
             >
+=======
+        <div class="container">
+            <section id="pokemon-list" aria-label="Lista de Pokémon" class="grid grid-cols-2 gap-4 md:grid-cols-4">
+>>>>>>> main
             </section>
+
+            
+        </div>
+
+        <div class="type-selector">
+            <label for="type-select">Filtrar por tipo:</label>
+            <select id="type-select" aria-label="Filtrar Pokémon por tipo">
+                <option value="">Todos</option>
+            </select>
         </div>
     </main>
+<<<<<<< HEAD
     <dialog
         id="pokemon-modal"
         aria-labelledby="modal-title"
         class="w-11/12 max-w-lg rounded-2xl bg-slate-900 p-6 text-white backdrop:bg-black/70"
     >
+=======
+
+    <dialog id="pokemon-modal" aria-labelledby="modal-title"
+        class="w-11/12 max-w-lg rounded-2xl bg-slate-900 p-6 text-white backdrop:bg-black/70">
+>>>>>>> main
         <div class="flex items-center justify-between gap-4">
-            <h2
-                id="modal-title"
-                class="text-2xl font-bold capitalize"
-            ></h2>
+            <h2 id="modal-title" class="text-2xl font-bold capitalize"></h2>
 
             <span id="modal-subtitle" class="text-sm text-slate-400"></span>
 
-            <button
-                id="modal-close"
-                type="button"
-                class="rounded-lg bg-red-500 px-3 py-2 hover:bg-red-600"
-                aria-label="Fechar detalhes do Pokémon"
-            >
+            <button id="modal-close" type="button" class="rounded-lg bg-red-500 px-3 py-2 hover:bg-red-600"
+                aria-label="Fechar detalhes do Pokémon">
                 Fechar
             </button>
         </div>

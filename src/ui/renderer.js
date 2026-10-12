@@ -2,8 +2,10 @@ import { createPokemonCard } from './pokemonCard.js';
 
 import {
     renderPokemonModal,
-    setupPokemonModal
+    setupPokemonModal,
 } from './pokemonModal.js';
+
+import { populateTypeSelector } from './pokemonSelector.js';
 
 const pokemonList = document.querySelector('#pokemon-list');
 
@@ -13,6 +15,12 @@ export function renderPokemonList(pokemonList) {
     const cards = pokemonList.map(createPokemonCard);
 
     container.replaceChildren(...cards);
+}
+
+export function pokemonSelector(pokemonService) {
+    pokemonService.getByType().then(types => {
+        populateTypeSelector(types);
+    });
 }
 
 export function renderPokemonDetails(pokemon) {
