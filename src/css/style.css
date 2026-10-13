@@ -1,6 +1,9 @@
 
 body {
-    background-color: bisque;
+    background-image: url(/imgs/f6a18ac56651ce4f9ca7e0230706a0b6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .first-header{
     display: flex;
@@ -13,34 +16,51 @@ body {
 .box-search {
     display: flex;
     justify-content: center;
-    background-color: black;
     width: 800px;
     padding: 20px;
     border-radius: 20px;
+    border: 1px solid rgb(114, 100, 100);
+    background-color: transparent;
+    background-image: url(/imgs/d7753a40ddcce0d2591010e2ed8ebe7f\ \(1\).jpg);
+    background-size: cover;
+    background-position: center 70%;
 }
 .search {   
     display: flex;
     align-items: center;
     width: 500px;
+    padding: 10px;
     border-radius: 10px;
-
+}
+.search input {
+    font-size: 25px;
+    font-style: italic;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(0, 0, 0);
+    outline: none;
 }
 .type-selector {
     border-radius: 10px;
     display: flex;
     margin-top: 10px;
     margin-left: 40px;
-    padding: 1px;
-    background-color:aqua;
+    padding: 10px;
+    background-color:transparent;
+    border: 3px solid gray;
+}
+.type-selector select {
+    outline: none;
 }
 .search-style {
-    background-color: chartreuse;
+    background-color: transparent;
     border-radius: 5px;
+    border: 3px solid rgb(150, 39, 144);
 }
 main{   
     min-height: 100vh;
     display: flex;
     justify-content: center;
+
 }
 section {
     width: 700px;
@@ -49,7 +69,7 @@ section {
     left: 11%;
 }
 .container {
-    background-color: green;
+    background-color: rgb(115, 177, 115);
     width: 900px;
     height: 1200px;
     margin-top: 2rem;
