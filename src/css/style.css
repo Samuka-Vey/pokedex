@@ -1,6 +1,6 @@
 
 body {
-    background-image: url(/imgs/f6a18ac56651ce4f9ca7e0230706a0b6.jpg);
+    background-image: url("/imgs/f6a18ac56651ce4f9ca7e0230706a0b6.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,7 +21,7 @@ body {
     border-radius: 20px;
     border: 1px solid rgb(114, 100, 100);
     background-color: transparent;
-    background-image: url(/imgs/d7753a40ddcce0d2591010e2ed8ebe7f\ \(1\).jpg);
+    background-image: url("/imgs/d7753a40ddcce0d2591010e2ed8ebe7f\ \(1\).jpg");
     background-size: cover;
     background-position: center 70%;
 }
