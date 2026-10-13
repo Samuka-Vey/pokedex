@@ -13,26 +13,27 @@
 
 <body>
     <header class="first-header">
-     <div class="box-search">
-        <div class="search search-style">
-            <input type="search" id="search-input" placeholder="Buscar Pokémon..." aria-label="Buscar Pokémon">
-        </div>
-                <div class="type-selector">
-            <label for="type-select">Filtrar por tipo:</label>
-            <select id="type-select" aria-label="Filtrar Pokémon por tipo">
-                <option value="">Todos</option>
-            </select>   
-     </div>
+        <div class="box-search">
+            <div class="search search-style">
+                <input type="search" id="search-input" placeholder="Buscar Pokémon..." aria-label="Buscar Pokémon">
+            </div>
+            <div class="type-selector">
+                <label for="type-select">Filtrar por tipo:</label>
+                <select id="type-select" aria-label="Filtrar Pokémon por tipo">
+                    <option value="">Todos</option>
+                </select>
+            </div>
 
     </header>
-        
+
 
     <main>
         <div class="container box-border">
-        <header class="box-header">
-            <nav id="pagination" class="mt-6 flex items-center justify-center gap-4" aria-label="Paginação dos Pokémon">
-            </nav>
-        </header>
+            <header class="box-header">
+                <nav id="pagination" class="mt-6 flex items-center justify-center gap-4"
+                    aria-label="Paginação dos Pokémon">
+                </nav>
+            </header>
             <section id="pokemon-list" aria-label="Lista de Pokémon" class="grid grid-cols-2 gap-4 md:grid-cols-4">
             </section>
         </div>
