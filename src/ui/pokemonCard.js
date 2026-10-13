@@ -1,29 +1,35 @@
 export function createPokemonCard(pokemon) {
-    const card = document.createElement('article');
+  const card = document.createElement("article");
 
-    card.dataset.id = pokemon.id;
+  card.dataset.id = pokemon.id;
 
-    card.className = `
+  card.className = `
         cursor-pointer rounded-xl bg-slate-800 p-4
         text-center text-white transition
         hover:scale-105 hover:bg-slate-700
     `;
 
-    const image = document.createElement('img');
-    image.src = pokemon.image;
-    image.alt = pokemon.name;
-    image.loading = 'lazy';
-    image.className = 'mx-auto h-24 w-24 object-contain';
+  const image = document.createElement("img");
+  image.src = pokemon.image;
 
-    const title = document.createElement('h2');
-    title.textContent = pokemon.name;
-    title.className = 'font-bold capitalize';
+  image.onerror = () => {
+    image.onerror = null;
+    // imagem desconhecida, substituindo por uma imagem padrão
+    image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png`;
+  };
+  image.alt = pokemon.name;
+  image.loading = "lazy";
+  image.className = "mx-auto h-24 w-24 object-contain";
 
-    const number = document.createElement('p');
-    number.textContent = `Nº ${pokemon.id}`;
-    number.className = 'text-sm text-slate-400';
+  const title = document.createElement("h2");
+  title.textContent = pokemon.name;
+  title.className = "font-bold capitalize";
 
-    card.append(image, title, number);
+  const number = document.createElement("p");
+  number.textContent = `Nº ${pokemon.id}`;
+  number.className = "text-sm text-slate-400";
 
-    return card;
+  card.append(image, title, number);
+
+  return card;
 }
