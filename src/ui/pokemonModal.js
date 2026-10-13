@@ -8,7 +8,7 @@ export function renderPokemonModal(pokemon) {
   title.textContent = pokemon.name;
   subtitle.textContent = `Nº ${pokemon.id}`;
 
-  console.log(pokemon.id)
+  console.log(pokemon.id);
 
   const image = document.createElement("img");
   image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${pokemon.id}.gif`;
@@ -17,6 +17,12 @@ export function renderPokemonModal(pokemon) {
     image.onerror = null;
 
     image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
+
+    image.onerror = () => {
+      image.onerror = null;
+
+      image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png`;
+    };
   };
   image.alt = pokemon.name;
   image.className = "mx-auto h-32 w-32 object-contain";
