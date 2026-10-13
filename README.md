@@ -1,86 +1,74 @@
 # Pokédex Simplificada
 
-Aplicação web desenvolvida para a disciplina de Programação Web da Universidade Estadual do Piauí (UESPI), com o objetivo de consultar e explorar informações sobre Pokémon utilizando uma API REST pública.
+Aplicação web desenvolvida para a disciplina de Programação Web da Universidade Estadual do Piauí (UESPI). Ela permite pesquisar, listar, filtrar por tipo e consultar detalhes de Pokémon, com dados obtidos em tempo de execução da PokéAPI.
+
+O projeto usa apenas HTML5, CSS3 e JavaScript puro (módulos ES), sem frameworks, backend ou banco de dados.
 
 ## Integrantes
 
 - Marcos Samuel Cornelio Barros
-
 - Ian Caio Pinheiro da Frota
-
-## Descrição do Projeto
-
-A Pokédex Simplificada permite pesquisar, listar e visualizar informações detalhadas de Pokémon consumindo dados em tempo real da API utilizada.
-
-A aplicação foi desenvolvida utilizando HTML5, CSS/Tailwind CSS e JavaScript/TypeScript, sem utilização de frameworks frontend ou backend.
 
 ## Funcionalidades
 
-### RF01 - Listagem de Pokémon
-- Exibição de uma lista de Pokémon ao iniciar a aplicação.
-- Apresentação do nome, número e imagem de cada Pokémon.
-
-### RF02 - Pesquisa
-- Pesquisa de Pokémon pelo nome.
-- Busca sem diferenciação entre letras maiúsculas e minúsculas.
-- Possibilidade de retornar à listagem original.
-
-### RF03 - Detalhamento de Pokémon
-Exibição das seguintes informações:
-
-- Nome
-- Número (ID)
-- Imagem
-- Tipo(s)
-- Altura
-- Peso
-- Habilidades
-- Estatísticas básicas
-
-### RF04 - Consulta por Tipo
-- Filtro de Pokémon por tipo.
-- Resultados obtidos diretamente da API.
-
-### RF05 - Apresentação dos Dados
-- Tratamento de imagens ausentes.
-- Tratamento de dados inexistentes.
-- Exibição legível de tipos e habilidades.
-- Identificação clara de altura e peso.
+- **Listagem inicial (RF01):** ao abrir a aplicação, é exibida uma lista paginada de Pokémon, cada um em um card com nome, número e imagem.
+- **Pesquisa por nome (RF02):** busca sem diferenciar maiúsculas de minúsculas, com opção de voltar à listagem anterior.
+- **Detalhamento (RF03):** ao selecionar um Pokémon, um modal mostra nome, número, imagem, tipo(s), altura, peso, habilidades e estatísticas básicas.
+- **Consulta por tipo (RF04):** filtro por tipo (fogo, água, planta etc.), com resultados vindos da API.
+- **Apresentação dos dados (RF05):**
+  - altura exibida em metros (m) e peso em quilogramas (kg);
+  - tipos e habilidades com nomes legíveis;
+  - imagem alternativa quando o Pokémon não possui imagem;
+  - dados ausentes tratados, sem exibir `undefined` ou `null`.
+- **Estados da interface:** feedback de carregamento, mensagem de "nenhum resultado" e mensagem de erro de comunicação com a API.
 
 ## API Utilizada
 
-### PokéAPI
+**PokéAPI** — API REST pública e gratuita com dados sobre Pokémon, tipos, habilidades, estatísticas e sprites.
 
-Documentação:
-https://pokeapi.co/docs/v2
+- Site: https://pokeapi.co
+- Documentação: https://pokeapi.co/docs/v2
 
-Site:
-https://pokeapi.co
+## Tecnologias
 
-## Tecnologias Utilizadas
-
-- HTML5
+- HTML5 semântico
 - CSS3
-- Tailwind CSS
-- JavaScript / TypeScript
-- Fetch API
+- JavaScript (ES Modules)
+- Fetch API com `async/await`
 
 ## Estrutura do Projeto
 
 ```text
+pokedex/
 ├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── api.js
-│   ├── main.js
-│   └── ui.js
-├── assets/
-│   └── images/
-└── README.md
+├── README.md
+├── .gitignore
+└── src/
+    ├── main.js                    # ponto de entrada e coordenação dos eventos
+    ├── assets/
+    │   └── imgs/                  # imagens locais (ex.: imagem de fallback)
+    ├── css/
+    │   └── style.css              # estilos da aplicação
+    ├── service/
+    │   ├── api.js                 # requisições HTTP à PokéAPI (fetch)
+    │   └── pokemonService.js      # regras de negócio e tratamento dos dados da API
+    └── ui/
+        ├── pokemonCard.js         # card de cada Pokémon na listagem
+        ├── pokemonModal.js        # modal com os detalhes do Pokémon
+        ├── pokemonPagination.js   # controles de paginação
+        ├── pokemonSelector.js     # seleção/filtro por tipo
+        └── renderer.js            # renderização da interface e estados (carregando, erro, vazio)
 ```
 
+### Organização do código
+
+- **`service/`** cuida da comunicação com a API e do tratamento dos dados, sem manipular o DOM.
+- **`ui/`** cuida da interface: cria elementos, atualiza a tela e exibe os estados.
+- **`main.js`** liga as duas camadas, registrando eventos e chamando os serviços e a renderização.
+
 ## Como Executar
+
+Como o projeto usa módulos ES, ele deve ser servido por um servidor local (abrir o `index.html` diretamente com `file://` pode bloquear os módulos).
 
 1. Clone o repositório:
 
@@ -94,28 +82,36 @@ git clone https://github.com/usuario/repositorio.git
 cd repositorio
 ```
 
-3. Abra o arquivo `index.html` no navegador.
+3. Inicie um servidor local, por exemplo:
 
-Ou utilize uma extensão como **Live Server** no VS Code.
+- **VS Code:** instale a extensão **Live Server**, clique com o botão direito em `index.html` e escolha *Open with Live Server*; ou
+- **Python:**
+
+```bash
+python -m http.server 8000
+```
+
+e acesse `http://localhost:8000`; ou
+- **Node.js:**
+
+```bash
+npx serve .
+```
+
+É necessário ter conexão com a internet, pois os dados são consultados na PokéAPI em tempo de execução.
 
 ## Requisitos Atendidos
 
-- Consumo de API REST em tempo de execução.
-- Operações assíncronas com Fetch API.
-- Interface responsiva.
-- HTML semântico.
-- Acessibilidade básica.
-- Tratamento de carregamento.
-- Tratamento de erros.
-- Tratamento de ausência de resultados.
-- Tratamento de dados ausentes.
+- Consumo de API REST em tempo de execução, sem dados estáticos ou simulados.
+- Operações assíncronas com `fetch` e `async/await`.
+- Tratamento de carregamento, sucesso, ausência de resultados, entradas inválidas e erros de comunicação.
+- Interface responsiva e HTML semântico.
+- Acessibilidade básica: controles com rótulos, foco visível e contraste adequado.
+- Identificadores técnicos em inglês e textos da interface em português.
 
 ## Disciplina
 
-**Programação Web**  
-Professor: Eyder Rios
-
-**Universidade Estadual do Piauí (UESPI)**  
-Curso de Tecnologia em Sistemas de Computação
-
-**1ª Avaliação - Trabalho de Implementação com API REST**
+**Programação Web** — Professor: Eyder Rios  
+Universidade Estadual do Piauí (UESPI) — Curso de Tecnologia em Sistemas de Computação  
+1ª Avaliação — Trabalho de Implementação: Aplicação Web com API REST (Problema 5 — Pokédex Simplificada)<br>
+Arquivo: pweb-aval1-prob05.pdf
