@@ -1,46 +1,47 @@
 import { createPokemonCard } from "./pokemonCard.js";
 
-import { renderPokemonModal, setupPokemonModal } from "./pokemonModal.js";
+import {
+    renderPokemonModal,
+    setupPokemonModal,
+} from "./pokemonModal.js";
 
 import { populateTypeSelector } from "./pokemonSelector.js";
 
 const pokemonList = document.querySelector("#pokemon-list");
 
-export function renderPokemonList(pokemonList) {
-  const container = document.querySelector("#pokemon-list");
+export function renderPokemonList(pokemons) {
+    const cards = pokemons.map(createPokemonCard);
 
-  const cards = pokemonList.map(createPokemonCard);
-
-  container.replaceChildren(...cards);
+    pokemonList.replaceChildren(...cards);
 }
 
 export function pokemonSelector(pokemonService) {
-  pokemonService.getByType().then((types) => {
-    populateTypeSelector(types);
-  });
+    return pokemonService.getByType().then((types) => {
+        populateTypeSelector(types);
+    });
 }
 
 export function renderPokemonDetails(pokemon) {
-  renderPokemonModal(pokemon);
+    renderPokemonModal(pokemon);
 }
 
 export function initRenderer() {
-  setupPokemonModal();
+    setupPokemonModal();
 }
 
 export function renderLoading() {
-  pokemonList.textContent = "Carregando Pokémon...";
+    pokemonList.textContent = "Carregando Pokémon...";
 }
 
 export function renderError(message) {
-  pokemonList.replaceChildren();
+    pokemonList.replaceChildren();
 
-  const errorMessage = document.createElement("p");
-  errorMessage.textContent = message;
+    const errorMessage = document.createElement("p");
+    errorMessage.textContent = message;
 
-  pokemonList.appendChild(errorMessage);
+    pokemonList.appendChild(errorMessage);
 }
 
 export function renderEmpty() {
-  pokemonList.textContent = "Nenhum Pokémon encontrado.";
+    pokemonList.textContent = "Nenhum Pokémon encontrado.";
 }
